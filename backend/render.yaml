@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: vicky-salon-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    region: oregon
