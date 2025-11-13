@@ -1,0 +1,16 @@
+services:
+  # Spring Boot Backend Service
+  - type: web
+    name: vicky-salon-backend
+    env: java
+    plan: free
+    buildCommand: mvn clean install -DskipTests
+    startCommand: java -jar target/barber-alert-system-1.0.0.jar
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: PHONE_TRIGGER_URL
+        sync: false
+        # You need to add this in Render dashboard
+        # Example: https://your-trigger-service.com/ring

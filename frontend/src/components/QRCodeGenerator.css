@@ -1,0 +1,200 @@
+.qr-container {
+  margin-top: 30px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.qr-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.qr-title {
+  text-align: center;
+  color: #667eea;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.qr-description {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.qr-code-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+.download-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  margin-bottom: 30px;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
+
+.qr-instructions {
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe9cc 100%);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 4px solid #ff9800;
+  margin-bottom: 25px;
+}
+
+.qr-instructions h3 {
+  color: #ff9800;
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.qr-instructions ol {
+  margin: 0;
+  padding-left: 25px;
+  color: #495057;
+}
+
+.qr-instructions li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.qr-instructions li:last-child {
+  margin-bottom: 0;
+}
+
+.url-display {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+}
+
+.url-display p {
+  margin: 0 0 10px 0;
+  color: #495057;
+  font-size: 14px;
+}
+
+.url-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  background: white;
+  color: #495057;
+  cursor: pointer;
+}
+
+.url-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .qr-card {
+    padding: 30px 25px;
+  }
+
+  .qr-title {
+    font-size: 24px;
+  }
+
+  .qr-code-wrapper {
+    padding: 20px;
+  }
+
+  .qr-code-wrapper svg {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  .qr-instructions {
+    padding: 20px;
+  }
+
+  .qr-instructions h3 {
+    font-size: 18px;
+  }
+
+  .qr-instructions li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .qr-card {
+    padding: 20px 15px;
+  }
+
+  .qr-title {
+    font-size: 20px;
+  }
+
+  .qr-description {
+    font-size: 14px;
+  }
+
+  .qr-code-wrapper {
+    padding: 15px;
+  }
+
+  .qr-code-wrapper svg {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .download-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .qr-instructions {
+    padding: 15px;
+  }
+
+  .qr-instructions h3 {
+    font-size: 16px;
+  }
+
+  .qr-instructions li {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .url-input {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
