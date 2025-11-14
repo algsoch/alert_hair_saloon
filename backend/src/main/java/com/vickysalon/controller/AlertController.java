@@ -20,6 +20,23 @@ public class AlertController {
     @Autowired
     private NotificationService notificationService;
     
+    // Root endpoint welcome message
+    @GetMapping("/")
+    public ResponseEntity<WelcomeResponse> welcome() {
+        WelcomeResponse response = new WelcomeResponse(
+            "Vicky Hair Salon - Alert System API",
+            "Backend is running successfully! ✅",
+            "https://alert-vicky-hair-saloon.vercel.app",
+            new String[]{
+                "POST /api/alert - Send customer alert",
+                "GET /api/health - Health check",
+                "GET /api/shop-info - Get shop information",
+                "GET /api/notifications/stream - SSE notification stream"
+            }
+        );
+        return ResponseEntity.ok(response);
+    }
+    
     @PostMapping("/alert")
     public ResponseEntity<AlertResponse> sendAlert(
             HttpServletRequest request,
@@ -119,6 +136,21 @@ public class AlertController {
             this.phoneNumber = phoneNumber;
             this.experience = experience;
             this.description = description;
+        }
+    }
+    
+    // Inner class for welcome response
+    public static class WelcomeResponse {
+        public String service;
+        public String status;
+        public String frontend;
+        public String[] endpoints;
+        
+        public WelcomeResponse(String service, String status, String frontend, String[] endpoints) {
+            this.service = service;
+            this.status = status;
+            this.frontend = frontend;
+            this.endpoints = endpoints;
         }
     }
 }
