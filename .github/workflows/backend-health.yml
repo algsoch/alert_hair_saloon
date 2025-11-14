@@ -1,0 +1,48 @@
+name: Backend Health Check
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'backend/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'backend/**'
+  schedule:
+    # Check health every hour
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Check Backend Health
+      run: |
+        echo "🏥 Checking backend health..."
+        
+        # Check root endpoint
+        echo "Checking root endpoint..."
+        curl -f https://vicky-salon-backend.onrender.com/ || exit 1
+        
+        # Check health endpoint
+        echo "Checking health endpoint..."
+        curl -f https://vicky-salon-backend.onrender.com/health || exit 1
+        
+        # Check API health
+        echo "Checking API health endpoint..."
+        curl -f https://vicky-salon-backend.onrender.com/api/health || exit 1
+        
+        # Check shop info
+        echo "Checking shop info endpoint..."
+        curl -f https://vicky-salon-backend.onrender.com/api/shop-info || exit 1
+        
+        echo "✅ All health checks passed!"
+    
+    - name: Notify on Failure
+      if: failure()
+      run: |
+        echo "❌ Backend health check failed!"
+        echo "Please check https://vicky-salon-backend.onrender.com/"
