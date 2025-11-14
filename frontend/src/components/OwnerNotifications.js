@@ -10,7 +10,8 @@ const OwnerNotifications = () => {
   const audioRef = useRef(null);
   const notificationsEndRef = useRef(null);
 
-  const CORRECT_PASSWORD = 'Iit7065@';
+  // Get password from environment variable (set by owner during deployment)
+  const CORRECT_PASSWORD = process.env.REACT_APP_OWNER_PASSWORD || 'Iit7065@';
 
   // Check if already authenticated in localStorage
   useEffect(() => {

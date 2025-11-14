@@ -1,6 +1,10 @@
 services:
+  # Backend Service - Java Spring Boot API
   - type: web
     name: vicky-salon-backend
     runtime: docker
     dockerfilePath: ./Dockerfile
-    region: oregon
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
