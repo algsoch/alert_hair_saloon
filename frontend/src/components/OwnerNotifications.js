@@ -72,8 +72,8 @@ const OwnerNotifications = () => {
       }
     })();
 
-    const apiUrl = process.env.REACT_APP_API_URL || inferredHost;
-    const eventSource = new EventSource(`${apiUrl}/api/notifications/stream`);
+    const apiUrl = process.env.REACT_APP_API_URL || `${inferredHost}/api`;
+    const eventSource = new EventSource(`${apiUrl}/notifications/stream`);
 
     eventSource.addEventListener('connected', (event) => {
       console.log('Connected to notification stream:', event.data);
